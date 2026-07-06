@@ -9,6 +9,7 @@ export function getMarkdownTemplate(title: string, content: string, tocHtml: str
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${escapeHtml(title)}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.47/dist/katex.min.css">
   <style>
     * {
       box-sizing: border-box;

@@ -1,5 +1,6 @@
 import express, { Request, Response, NextFunction } from 'express';
 import { marked } from 'marked';
+import markedKatex from 'marked-katex-extension';
 import * as fs from 'fs';
 import * as path from 'path';
 import { getMarkdownTemplate, getDirectoryTemplate } from './templates';
@@ -59,6 +60,9 @@ export function createServer(options: ServerOptions) {
     breaks: false,
     renderer: renderer,
   });
+
+  // KaTeX math rendering ($...$ inline, $$...$$ block), coexists with mermaid renderer above
+  marked.use(markedKatex({ throwOnError: false }));
 
   // Logging middleware
   if (verbose) {
